@@ -1,0 +1,267 @@
+/* Reset default styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #181818; /* Dark background color */	
+    color: #ffffff; /* Light text color */
+}
+
+/* Container styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Typography styles */
+h1 {
+    margin-bottom: 20px;
+}
+
+/* List styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* List item styles */
+li {
+    background-color: #292929; /* Darker background color */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #444; /* Darker border color */
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Upload form styles */
+.upload-form {
+    background-color: #292929; /* Darker background color */
+    padding: 1.5rem;
+    border: 1px solid #444; /* Darker border color */
+    border-radius: 5px;
+    margin-top: 1.5rem;
+}
+
+.upload-form input[type="file"] {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.upload-form input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.upload-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Error message styles */
+.error-message {
+    color: red;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+}
+
+/* Demo banner styles */
+.demo-banner {
+    background-color: #f44336;
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 5px;
+}
+
+/* Admin actions styles */
+.admin-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.admin-action {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.admin-action:hover {
+    color: #f44336;
+}
+
+/* Empty message styles */
+.empty-message {
+    text-align: center;
+    font-size: 1rem;
+    color: #666;
+    margin-top: 1rem;
+}
+
+/* Navbar styles */
+.navbar {
+    border: 1px solid #445; /* Darker border color */
+    color: white;
+    padding: 5px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #007bff;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Logo styles */
+.logo a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* User info styles */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-info p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.user-info a {
+    color: white;
+    text-decoration: none;
+}
+
+.user-info a:hover {
+    text-decoration: underline;
+}
+
+/* Grid and Pagination styles */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.grid-item {
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 250px;
+    height: 300px;
+}
+
+.download-button {
+    /* ... (other styles) ... */
+    margin-top: auto; /* Adjust this margin to move the button closer to the bottom */
+}
+
+.grid-item p {
+    margin: 0;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%; /* Ensure the text doesn't overflow the grid item */
+}
+.grid-item p:hover::after {
+    content: attr(data-full-name);
+    position: absolute;
+    top: -25px;
+    left: 0;
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 1;
+    font-size: 12px;
+}
+
+
+.grid-item:hover {
+    background-color: #334;
+    transform: translateY(-2px);
+}
+
+.grid-item img {
+    width: 200px;
+    height: relative;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.download-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.download-button:hover {
+    background-color: #0056b3;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-link {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: 1px solid #007bff;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.pagination-link.active {
+    background-color: #007bff;
+    color: white;
+}

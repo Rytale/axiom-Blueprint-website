@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blueprint Marketplace</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="demo-banner">
+        This is a demo site for development purposes only. Uploaded files and data are not permanent.
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <h1><a href="/">Blueprint Marketplace</a></h1>
+            </div>
+            <div class="user-info">
+                <% if (user) { %>
+                    <div class="user-icon">
+                        <img src="/user-icons/<%= user.icon %>" alt="User Icon">
+                    </div>
+                    <p>Welcome back, <%= user.username %>!</p>
+                    <a href="/logout">Logout</a>
+                <% } else { %>
+                    <a href="/login">Login</a>
+                    <a href="/register">Register</a>
+                <% } %>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <% if (req.query.error === 'noFile') { %>
+            <p class="error-message">Please select a file to upload.</p>
+        <% } else if (req.query.error === 'duplicateFile') { %>
+            <p class="error-message">A file with the same name already exists.</p>
+        <% } else if (req.query.error === 'uploadError') { %>
+            <p class="error-message">An error occurred while uploading the file.</p>
+        <% } %>
+    
+        <h2>Uploaded Blueprints</h2>
+        <% if (blueprints.length > 0) { %>
+            <div class="grid-container">
+                <% const blueprintsPerPage = 9;
+                   const totalPages = Math.ceil(blueprints.length / blueprintsPerPage);
+                   const startIndex = (currentPage - 1) * blueprintsPerPage;
+                   const endIndex = Math.min(startIndex + blueprintsPerPage, blueprints.length); %>
+                
+                <% for (let i = startIndex; i < endIndex; i++) { %>
+                    <div class="grid-item">
+                        <img src="/thumbnails/<%= blueprints[i].replace('.bp', '.png') %>" alt="Thumbnail">
+                        <p data-full-name="<%= blueprints[i] %>"><%= blueprints[i] %></p>
+                        <% if (usernamesMap[blueprints[i]]) { %>
+                            <p class="uploader">Uploaded by <%= usernamesMap[blueprints[i]] %></p>
+                        <% } %>
+                        <a href="/download/<%= blueprints[i] %>" class="download-button <%= (!user) ? 'disabled' : '' %>">Download</a>
+                    </div>
+                    <% if ((i + 1) % 3 === 0 || i === endIndex - 1) { %>
+                        </div><div class="grid-container">
+                    <% } %>
+                <% } %>
+                
+                <!-- Pagination controls -->
+                <div class="pagination">
+                    <% for (let page = 1; page <= totalPages; page++) { %>
+                        <a href="/?page=<%= page %>" class="pagination-link <%= (currentPage === page) ? 'active' : '' %>"><%= page %></a>
+                    <% } %>
+                </div>
+            </div>
+        <% } else { %>
+            <p class="empty-message">Nothing here :D Try again later.</p>
+        <% } %>
+        
+        <% if (user) { %>
+            <div class="upload-form">
+                <h2>Upload New Blueprint</h2>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" name="blueprint" accept=".bp">
+                    <input type="submit" value="Upload">
+                </form>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
