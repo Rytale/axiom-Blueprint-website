@@ -14,7 +14,6 @@
 // ========= Personal Notes =========
 /*
    - Remember to optimize this later
-   - Consider refactoring this block into smaller functions
 */
 
 // ========= Temporary Debugging =========
