@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+  }
+  
+  .login-container {
+    background-color: #292929;
+    padding: 20px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    position: relative; /* Added */
+    z-index: 1; /* Added */
+    color: white;
+    margin-left: 2in
+  }
+  
+  .background-photo {
+    position: absolute;
+    top: -15%;
+    right: 0;
+    bottom: 0;
+    left: 30%;
+    background-image: url('https://i.imgur.com/R5YlI0J.jpg');
+    background-size: cover;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    z-index: 0;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: white
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 5px; 
+    margin-bottom: 15px;
+    background-color: #1f1f1f;
+    border: none;
+    border-radius: 5px;
+    color: white
+  }
+  
+  input[type="submit"] {
+    background-color: #bb86fc;
+    color: #121212;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #a67dff;
+  }
+  
+  /* Dark mode toggle */
+  .dark-mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
